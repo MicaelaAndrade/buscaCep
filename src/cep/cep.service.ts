@@ -18,7 +18,6 @@ export class CepService implements Cep {
   ) {}
   getAddressByCep: (cep: string) => Promise<InterCep>;
 
-  /* regra de negocio */
   private replaceCharIndex = (
     code: string,
     index: number,
@@ -30,13 +29,14 @@ export class CepService implements Cep {
     )}`;
   };
 
+  /* regra de negocio */
   public async getAddressByCepCode(cep: string, index = 7): Promise<InterCep> {
     let req = null;
     let validationCep = cep;
 
     if (validationCep !== '00000000') {
       req = await this.sendCepCode(validationCep);
-      console.log('entrou', index);
+
       if (!req.erro) {
         return {
           cep: req.cep,
@@ -59,7 +59,7 @@ export class CepService implements Cep {
           index--;
         }
         validationCep = this.replaceCharIndex(validationCep, index, '0');
-        console.log({ cep, index, validationCep });
+
         return this.getAddressByCepCode(validationCep, index - 1);
       }
     }
