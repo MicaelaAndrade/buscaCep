@@ -1,7 +1,7 @@
 import { Body, Controller, Post } from '@nestjs/common';
-import { JwtDTO } from './dto/jwt.dto';
+import { JwtDTO } from './dtos/jwt.dto';
 import { AuthService } from './auth.service';
-import { Auth } from './dto/auth.dto';
+import { Auth } from './dtos/auth.dto';
 
 @Controller('auth')
 export class AuthController {
@@ -9,7 +9,6 @@ export class AuthController {
 
   @Post('login')
   public async login(@Body() jwtDTO: JwtDTO): Promise<Auth> {
-    console.log('entrou controller');
     return await this.authService.login(jwtDTO);
   }
 }

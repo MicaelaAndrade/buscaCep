@@ -8,7 +8,7 @@ Serviço de API desenvolvido com framework Nest.js que busca CEP qualquer locali
 ### Exemplo:
 
 ```bash
-GET /api/v1/pvt/cep
+GET /api/cep
 Status: 200 - Resposta da api :
 {
   "cep": "14405-275",

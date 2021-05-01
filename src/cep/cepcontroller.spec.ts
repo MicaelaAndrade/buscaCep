@@ -65,26 +65,15 @@ describe('Cep Controller', () => {
   });
 
   // it('Deve retornar um endereço válido', async () => {
-  //   controller.getZipCode('14405275').then((res) => {
+  //   controller.getCep('14405275').then((res) => {
   //     expect(res).toBeDefined();
   //     expect(res).toHaveProperty('localidade', 'Franca');
   //   });
   // });
 
-  it('/GET Deve retorna um endereço inválido', async () => {
-    return request(app.getHttpServer())
-      .get('/api/v1/pvt/cep?cep=144052-75')
-      .expect(400)
-      .expect({
-        statusCode: 400,
-        message: 'Por favor insira um cep validado.',
-        error: 'Bad Request',
-      });
-  });
-
-  // it('/GET Deve retorna um endereço inválido', async () => {
+  // it('Deve retorna um endereço inválido', async () => {
   //   return request(app.getHttpServer())
-  //     .get('/api/v1/pvt/cep?cep=14405275')
+  //     .get('/api/cep/144052-75')
   //     .expect(400)
   //     .expect({
   //       statusCode: 400,
@@ -93,28 +82,17 @@ describe('Cep Controller', () => {
   //     });
   // });
 
-  it('/GET Deve retorna um endereço inválido', async () => {
-    return request(app.getHttpServer())
-      .get('/api/v1/pvt/cep?cep= 144052-755')
-      .expect(400)
-      .expect({
-        statusCode: 400,
-        message: 'Por favor insira um cep validado.',
-        error: 'Bad Request',
-      });
-  });
-
-  it('Deve conter valor esperado, retorna endereço', async () => {
-    return request(app.getHttpServer())
-      .get('/api/v1/pvt/cep?cep=14405275')
-      .expect(200)
-      .expect({
-        cep: '14405-275',
-        logradouro: 'Rua Padre Conrado',
-        bairro: 'Vila Santos Dumont',
-        localidade: 'Franca',
-      });
-  });
+  // it('Deve conter valor esperado, retorna endereço', async () => {
+  //   return request(app.getHttpServer())
+  //     .get('/api/cep/14405275')
+  //     .expect(200)
+  //     .expect({
+  //       cep: '14405-275',
+  //       logradouro: 'Rua Padre Conrado',
+  //       bairro: 'Vila Santos Dumont',
+  //       localidade: 'Franca',
+  //     });
+  // });
 
   afterAll(async () => {
     await app.close();

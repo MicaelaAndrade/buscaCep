@@ -1,15 +1,14 @@
 import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
 import { JwtService } from '@nestjs/jwt';
-import { Auth } from './dto/auth.dto';
-import { AuthSecrety } from './dto/authSecrety';
-import { JwtDTO } from './dto/jwt.dto';
+import { Auth } from './dtos/auth.dto';
+import { AuthSecrety } from './dtos/authSecrety';
+import { JwtDTO } from './dtos/jwt.dto';
 
 @Injectable()
 export class AuthService {
   constructor(private jwtService: JwtService) {}
 
   async login(jwtDTO: JwtDTO): Promise<Auth> {
-    console.log('entrou no serve');
     if (jwtDTO.user === 'admin' && jwtDTO.pass === 'admin') {
       const { accessToken } = this._createToken({ name: 'admin', id: 1 });
 
@@ -30,11 +29,11 @@ export class AuthService {
   }
 
   private _createToken(authSecrety: AuthSecrety) {
-    try {
-      const accessToken = this.jwtService.sign(authSecrety);
-    } catch (error) {
-      console.log(error);
-    }
+    // try {
+    //   const accessToken = this.jwtService.sign(authSecrety);
+    // } catch (error) {
+    //   console.log(error);
+    // }
     const accessToken = this.jwtService.sign(authSecrety);
     return {
       accessToken,
