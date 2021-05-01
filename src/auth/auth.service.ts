@@ -20,12 +20,13 @@ export class AuthService {
     throw new HttpException('Usuário não autorizado', HttpStatus.UNAUTHORIZED);
   }
 
-  async validateUser(jwtDTO: JwtDTO): Promise<AuthSecrety> {
-    if (jwtDTO.user === 'admin' && jwtDTO.pass === 'admin') {
+  async validateUser(
+    authSecrety: AuthSecrety,
+  ): Promise<AuthSecrety | undefined> {
+    if (authSecrety.name === 'admin' && authSecrety.id === 1) {
       return { name: 'admin', id: 1 };
     }
-
-    throw new HttpException('Invalid token', HttpStatus.UNAUTHORIZED);
+    return undefined;
   }
 
   private _createToken(authSecrety: AuthSecrety) {

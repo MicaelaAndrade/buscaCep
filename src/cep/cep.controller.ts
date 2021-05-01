@@ -10,7 +10,7 @@ import {
   UseGuards,
   UseInterceptors,
 } from '@nestjs/common';
-import { ApiQuery, ApiResponse, ApiSecurity } from '@nestjs/swagger';
+import { ApiBearerAuth, ApiQuery, ApiResponse } from '@nestjs/swagger';
 import { WINSTON_MODULE_PROVIDER } from 'nest-winston';
 import { InterCep } from './interfaces/cep.interface';
 import { CepValidatorPipe } from './validators/cep.validator';
@@ -21,15 +21,15 @@ import { AuthGuard } from '@nestjs/passport';
 @Injectable()
 export class JwtAuthGuard extends AuthGuard('jwt') {}
 
+@UseGuards(JwtAuthGuard)
+@ApiBearerAuth()
 @Controller('/api')
-@ApiSecurity('auth')
 export class CepController {
   constructor(
     @Inject(WINSTON_MODULE_PROVIDER) private readonly logger: Logger,
     private readonly cepService: CepService,
   ) {}
 
-  @UseGuards(JwtAuthGuard)
   @Get('/cep')
   @ApiResponse({
     status: 200,

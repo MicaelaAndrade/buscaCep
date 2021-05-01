@@ -10,11 +10,7 @@ async function bootstrap() {
     .setTitle('Busca Cep')
     .setDescription('Serviço busca de cep')
     .setVersion('1.0')
-    .addApiKey({
-      type: 'apiKey',
-      name: 'apiKey',
-      description: 'Autenticação do token',
-    })
+    .addBearerAuth()
     .build();
   app.useLogger(app.get(WINSTON_MODULE_NEST_PROVIDER)); // logger controll
   const document = SwaggerModule.createDocument(app, docs);
