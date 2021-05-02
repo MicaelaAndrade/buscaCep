@@ -19,18 +19,16 @@ Status: 200 - Resposta da api :
 }
 
 ```
-# Sobre a forma que foi realizado o projeto: - em analise
+# Sobre a forma que foi realizado o projeto: 
 1. Foi pedido para substituir um digito da direita para esquerda até endereço seja localizado (foi usado a função recursiva).
-2. Usado o express é uma API simples de get que pode ser feita como poucos cliques.
-3. Arquitetura utilizado Node-Fetch é uma interface acessa os dados e manipula do pipelen HTTTP.
+2. Usado o framework Nest.js que trás o modelo arquitetual.
+3. Arquitetura utilizado Axios é uma interface acessa os dados e manipula do pipelen HTTTP.
 4. Foi utilizado API Viacep formato JSON.
-5. Utilizado Node.js requer / Swagger / Mock, para teste.
+5. Utilizado Node.js/Nest.js requer / Swagger / Mock, para teste.
 6. Foi feito autenticação para API.
 7. Estrutura da pasta é em ordenação, para ficar mais visivel e simples.
-8. Foi criado Actions dentro do GitHub
 
-      
-### Observações: - em analise
+### Observações: 
 
 1. Precisa gerar o token primeiro, para poder fazer a consulta do cep informado.
 2. Apos ter gerado o token informar no Authorize(Swagger), feito isso acessar a rota GET informar o CEP.

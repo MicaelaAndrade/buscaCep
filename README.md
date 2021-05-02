@@ -6,7 +6,7 @@
 [circleci-url]: https://circleci.com/gh/nestjs/nest
 
 ## 👩🏻‍🏭 O projeto
-<p align="center">Serviço de API desenvolvido com framework Nestjs que busca CEP qualquer localidade, o componente exporta uma função que retorna um endereço recebendo um cep como parâmetro.</p>
+<p align="center">Serviço de API desenvolvido com Node.js e o framework Nestjs que busca CEP qualquer localidade, o componente exporta uma função que retorna um endereço recebendo um cep como parâmetro.</p>
 
 ## 🥷🏻 Sobre o Desafio
 [Aqui](doc/SOBRE.md)
@@ -24,8 +24,7 @@ Além disto é bom ter um editor para trabalhar com o código como [VSCode](http
 |------|------|------|-------|--------|-----------|
 |GET| / | - | - | - | status do servidor |
 | - | /api | - | - | - | Aplicação do swagger |
-| - | /api/token | - | - | - | informa o token da aplicação |
-| - | /api/14405275 | - | - | - | retorna os dados informado pelo cep |
+
 
 ### 👩🏻‍💻 Realizando teste com swagger - em analise
 
@@ -46,10 +45,17 @@ BUSCA-CEP-NESTJS/
 │   └── SOBRE.md
 │   │── src/
 │   │   ├── auth/
-│   │   │   └── api.strategy.ts
-│   │   │    └── auth.module.ts 
-│   │   │    └── auth.service.spec.ts 
-│   │   │    └── auth.service.ts 
+│   │   │   │── __dto__/
+│   │   │   │       └── auth.dto.ts
+│   │   │   │       └── authSecrety.ts
+│   │   │   │       └── jwt.dto.ts
+│   │   │   │       └── status.dto.ts
+│   │   │── auth.controller.spec.ts 
+│   │   │── auth.controller.ts 
+│   │   │── auth.module.ts 
+│   │   │── auth.service.spec.ts 
+│   │   │── auth.service.ts 
+│   │   │── auth.strategy.ts
 │   │── cep/
 │   │   │   │── __dto__/
 │   │   │   │       └── cep.dto.ts
@@ -63,6 +69,7 @@ BUSCA-CEP-NESTJS/
 │   │   │── cep.controller.ts/
 │   │   │── cep.module.ts/
 │   │   │── cep.service.ts/
+│   │   │── cepcontroller.spec.ts/
 │   │── app.module.ts/
 │   │──main.ts/
 │──test/
@@ -82,25 +89,25 @@ BUSCA-CEP-NESTJS/
 ## Installation
 
 ```bash
-$ npm install
+$ yarn install
 ```
 
 ## Running the app
 
 ```bash
 # development
-$ npm run start
+$ yarn start:dev
 ```
 
 ## Test the app
 
 ```bash
 # development
-$ npm test 
+$ yarn test 
 ```
 
 
-### 🙋🏻‍♀️ Autor
+###  Autor
 
  <img style="border-radius: 50%;" src="https://user-images.githubusercontent.com/53954022/92161695-549d5400-ee07-11ea-9373-cc42e7ee53a5.png" width="100px;" alt=""/>
  <sub><b>Micaela Andrade</b></sub>
