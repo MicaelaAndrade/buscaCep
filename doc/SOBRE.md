@@ -30,7 +30,19 @@ Status: 200 - Resposta da api :
 
 ### Observações: 
 
-1. Precisa gerar o token primeiro, para poder fazer a consulta do cep informado.
+1. Precisa gerar o token primeiro, para poder fazer a consulta do cep informado. 
+2. Rodar comando abaixo será gerado o token.
+
+```bash
+curl -X 'POST' \
+  'http://localhost:3000/auth/login' \
+  -H 'accept: */*' \
+  -H 'Content-Type: application/json' \
+  -d '{
+ "user": "admin",
+ "pass": "admin"
+}'
+```
 2. Apos ter gerado o token informar no Authorize(Swagger), feito isso acessar a rota GET informar o CEP.
 
 ### Requisitos: - em analise

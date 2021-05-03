@@ -6,5 +6,6 @@ import { CepController } from './cep.controller';
   imports: [HttpModule, CacheModule.register()], // cache-controll
   controllers: [CepController],
   providers: [CepService],
+  exports: [],
 })
 export class CepModule {}
