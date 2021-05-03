@@ -18,15 +18,18 @@ Antes de começar, você vai precisar ter instalado em sua máquina as seguintes
 [Git](https://git-scm.com), [Node.js](https://nodejs.org/en/), [Nestjs](https://nestjs.com).
 Além disto é bom ter um editor para trabalhar com o código como [VSCode](https://code.visualstudio.com/)
 
-### ⚙️ Rodando Rotas - em analise
+### ⚙️ Rodando Rotas
 
 | TYPE | PATH | ARGS | QUERY | PARAMS | DESCRIÇÃO |
 |------|------|------|-------|--------|-----------|
 |GET| / | - | - | - | status do servidor |
 | - | /api | - | - | - | Aplicação do swagger |
+| - | /api/cep/14405275 | - | - | - | Necessário Token |
+| - | /auth/login | - | - | - | Gerando o Token |
+| - | /api/cep/14405275 | - | - | - | Após autenticado o Token, retorna os dados no formato JSON |
 
 
-### 👩🏻‍💻 Realizando teste com swagger - em analise
+### 👩🏻‍💻 Realizando teste com swagger 
 
 ```bash
 # Acessando a rota
@@ -50,6 +53,7 @@ BUSCA-CEP-NESTJS/
 │   │   │   │       └── authSecrety.ts
 │   │   │   │       └── jwt.dto.ts
 │   │   │   │       └── status.dto.ts
+│   │   │── auth-jwlt.guard.ts
 │   │   │── auth.controller.spec.ts 
 │   │   │── auth.controller.ts 
 │   │   │── auth.module.ts 
@@ -66,16 +70,15 @@ BUSCA-CEP-NESTJS/
 │   │   │   │      └──auth.middleware.ts
 │   │   │   │── __validators__/
 │   │   │   │      └──cep.validator.ts
+│   │   │── cep.controller.spec.ts/
 │   │   │── cep.controller.ts/
 │   │   │── cep.module.ts/
+│   │   │── cep.service.spec.ts/
 │   │   │── cep.service.ts/
-│   │   │── cepcontroller.spec.ts/
+│   │──test/
+│   │   └── app.e2e-spec.ts
 │   │── app.module.ts/
 │   │──main.ts/
-│──test/
-│   └── app.e2e-spec.ts
-│   └── jest-e2e.json
-│── .env
 │── .eslintrc.js
 │── .gitignore
 │── .prettierrc
@@ -105,7 +108,6 @@ $ yarn start:dev
 # development
 $ yarn test 
 ```
-
 
 ###  Autor
 
