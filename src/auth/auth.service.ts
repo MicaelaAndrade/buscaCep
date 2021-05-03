@@ -30,11 +30,6 @@ export class AuthService {
   }
 
   private _createToken(authSecrety: AuthSecrety) {
-    // try {
-    //   const accessToken = this.jwtService.sign(authSecrety);
-    // } catch (error) {
-    //   console.log(error);
-    // }
     const accessToken = this.jwtService.sign(authSecrety);
     return {
       accessToken,
