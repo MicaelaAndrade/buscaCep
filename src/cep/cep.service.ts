@@ -46,15 +46,6 @@ export class CepService implements Cep {
           localidade: req.localidade,
           uf: req.uf,
         };
-
-        // CEP: 14405270 - index 6 replace 14405200
-        // CEP: 14405200 - index 5 replace 14405000
-        // CEP: 14405000 - index 4 replace 14400000
-
-        // CEP: 14400000 - index 3 replace 14400000
-        // CEP: 14400000 - index 2 replace 14000000
-        // CEP: 14000000 - index 1 replace 10000000
-        // CEP: 10000000 - index 0 replace 00000000
       } else if (index >= 0) {
         while (index > 0 && validationCep[index] === '0') {
           index--;

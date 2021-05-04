@@ -16,6 +16,7 @@ import { AuthMiddleware } from './cep/middlewares/auth.middleware';
 import { WinstonModule } from 'nest-winston';
 import * as winston from 'winston';
 import { TerminusModule } from '@nestjs/terminus';
+import { HealthController } from './health/health.controller';
 
 @Module({
   imports: [
@@ -50,7 +51,7 @@ import { TerminusModule } from '@nestjs/terminus';
       ],
     }),
   ],
-  controllers: [CepController],
+  controllers: [CepController, HealthController],
   providers: [
     Logger,
     CepService,

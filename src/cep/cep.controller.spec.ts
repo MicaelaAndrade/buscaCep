@@ -52,10 +52,6 @@ describe('Cep Controller', () => {
     controller = module.get<CepController>(CepController);
   });
 
-  // it('Deve ser definido', () => {
-  //   expect(controller).toBeDefined();
-  // });
-
   it('Deve retornar um endereço válido', async () => {
     controller.getCep('14405275').then((res) => {
       expect(res).toBeDefined();
