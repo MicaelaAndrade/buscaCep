@@ -25,8 +25,6 @@ Além disto é bom ter um editor para trabalhar com o código como [VSCode](http
 |GET| / | - | - | - | status do servidor |
 | - | /api | - | - | - | Aplicação do swagger |
 | - | /api/cep/14405275 | - | - | - | Necessário Token |
-| - | /auth/login | - | - | - | Gerando o Token |
-| - | /api/cep/14405275 | - | - | - | Após autenticado o Token, retorna os dados no formato JSON |
 
 
 ### 👩🏻‍💻 Realizando teste com swagger 
