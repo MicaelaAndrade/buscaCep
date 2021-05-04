@@ -14,11 +14,10 @@ export class CepValidatorPipe implements PipeTransform {
   ) {}
 
   transform(cep: string): string {
-    const valid = /[0-9]{8}/g;
-
+    const valid = /^[0-9]{5}?((-|\s)?)[0-9]{3}$/g;
     const result = valid.test(cep);
 
-    if (!result || cep.length > 8) {
+    if (!result) {
       this.logger.error(
         `Insira um Cep validado: ${cep} `,
         CepValidatorPipe.name,
@@ -31,6 +30,6 @@ export class CepValidatorPipe implements PipeTransform {
       CepValidatorPipe.name,
     );
 
-    return cep.replace(/\-/gi, '');
+    return (cep.trim().match(/\d+/g) || []).join('');
   }
 }

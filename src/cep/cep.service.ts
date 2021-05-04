@@ -5,6 +5,7 @@ import {
   Inject,
   Injectable,
   Logger,
+  NotFoundException,
 } from '@nestjs/common';
 import { WINSTON_MODULE_PROVIDER } from 'nest-winston';
 import { Cep } from './interfaces/cep.class';
@@ -64,11 +65,7 @@ export class CepService implements Cep {
       }
     }
 
-    req = {
-      error: `Cep invalidado: ${cep}`,
-    };
-
-    return req;
+    throw new NotFoundException('Cep não encontrado');
   }
 
   private statusError(error: any): void {
