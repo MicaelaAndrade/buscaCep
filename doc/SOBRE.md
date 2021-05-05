@@ -7,14 +7,13 @@ Serviço de API desenvolvido com framework Nest.js que busca CEP qualquer locali
 
 
 # Sobre a forma que foi realizado o projeto: 
-$ Foi pedido para substituir um digito da direita para esquerda até endereço seja localizado (foi usado a função recursiva).
-$ Usado o framework Nest.js que facilita a construção de API's robustas e de alta escalabilidade e a construção de endpoints com os Decorators do typescript.
+1. Foi pedido para substituir um digito da direita para esquerda até endereço seja localizado (foi usado a função recursiva).
+2. Usado o framework Nest.js que facilita a construção de API's robustas e de alta escalabilidade e a construção de endpoints com os Decorators do typescript.
 3. Arquitetura utilizado Axios é uma interface acessa os dados e manipula do pipelen HTTTP.
 4. Foi utilizado API Viacep formato JSON.
 5. Utilizado Node.js / Nest.js / Swagger / Mock, para teste.
 6. Foi feito autenticação para API.
 7. Estrutura da pasta é em ordenação, para ficar mais visivel e simples.
-
 
 
 ### Requisitos: 
