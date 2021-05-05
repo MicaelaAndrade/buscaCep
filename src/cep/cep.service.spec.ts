@@ -52,4 +52,18 @@ describe('Cep Service', () => {
       expect(res).toHaveProperty('localidade', 'Franca');
     });
   });
+
+  it('Cep não encontrado', async () => {
+    nock('https://viacep.com.br/ws').get('/00000000/json/').reply(404, {
+      cep: undefined,
+      logradouro: undefined,
+      bairro: undefined,
+      localidade: undefined,
+      uf: undefined,
+    });
+    service.getAddressByCepCode('00000000').then((res) => {
+      expect(res).toBeDefined();
+      expect(res).toHaveProperty('localidade', 'Franca');
+    });
+  });
 });

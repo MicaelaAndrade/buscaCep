@@ -1,4 +1,4 @@
-import { ExecutionContext, HttpModule, INestApplication } from '@nestjs/common';
+import { ExecutionContext, INestApplication } from '@nestjs/common';
 import { Test, TestingModule } from '@nestjs/testing';
 import * as request from 'supertest';
 import * as nock from 'nock';
@@ -45,7 +45,7 @@ describe('AuthService', () => {
       .get('application/json')
       .reply(201, {
         user: 'admin',
-        pass: 'admin',
+        pass: 'pass',
       });
     return request(app.getHttpServer()).post('/auth/login').expect(401);
   });

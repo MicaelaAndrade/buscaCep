@@ -17,6 +17,7 @@ export class AuthService {
         accessToken,
       };
     }
+
     throw new HttpException('Usuário não autorizado', HttpStatus.UNAUTHORIZED);
   }
 
