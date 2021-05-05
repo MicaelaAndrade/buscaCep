@@ -27,17 +27,30 @@ Além disto é bom ter um editor para trabalhar com o código como [VSCode](http
 | - | /api/cep/14405275 | - | - | - | Necessário Token |
 
 
+# Estrutura do projeto
+$  Foi pensado para facilitar maneira de consultar CEP de qualquer localidade,junto com API ViaCep.
+$  Foram colcoado cacheamento nos dados, quando é feita uma requisição da consulta de CEP, mesma ficara cacheada.
+$ Foi implementado Health check para validar se a aplicação está sendo executada.
+$ Colocado uma autenticação na chamada da API, mesma só retornará os dados, se estiver autenticada pelo Token.
+
 ### 👩🏻‍💻 Realizando teste com swagger 
 
 ```bash
 # Acessando a rota
 $  http://localhost:3000/api
 $  Precisa gerar o token primeiro, para poder fazer a consulta do cep informado.
-$  Apos ter gerado o token informar no Authorize, feito isso acessar a rota GET informar o CEP.
+$  Gerar Curl API irá receber um token para autenticar. 
+    
+curl -X 'POST' \
+  'http://localhost:3000/auth/login' \
+  -H 'accept: */*' \
+  -H 'Content-Type: application/json' \
+  -d '{
+ "user": "admin",
+ "pass": "admin"
+}'
 
-# Estrutura do projeto
-$  Foi pensado para facilitar maneira de consultar CEP de qualquer localidade,junto com API ViaCep.
-$  Com o retorno dos  dados principais da aplicação .
+$  Apos ter gerado o token informar no Authorize, feito isso acessar a rota GET informar o CEP.
 
 Todo módulo do projeto tem sua responsabilidade, os arquivos estão configuração e padronizados no projeto.
 
@@ -73,8 +86,10 @@ BUSCA-CEP-NESTJS/
 │   │   │── cep.module.ts/
 │   │   │── cep.service.spec.ts/
 │   │   │── cep.service.ts/
+│   │── health/
+│   │   │── health.controller.ts/
 │   │──test/
-│   │   └── app.e2e-spec.ts
+│   │   └── cep.e2e-spec.ts
 │   │── app.module.ts/
 │   │──main.ts/
 │── .eslintrc.js
