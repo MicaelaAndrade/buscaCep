@@ -28,10 +28,10 @@ Além disto é bom ter um editor para trabalhar com o código como [VSCode](http
 
 
 # Estrutura do projeto
-$ Foi pensado para facilitar maneira de consultar CEP de qualquer localidade,junto com API ViaCep.
-$ Foram colcoado cacheamento nos dados, quando é feita uma requisição da consulta de CEP, mesma ficara cacheada.
-$ Foi implementado Health check para validar se a aplicação está sendo executada.
-$ Colocado uma autenticação na chamada da API, mesma só retornará os dados, se estiver autenticada pelo Token.
+- Foi pensado para facilitar maneira de consultar CEP de qualquer localidade,junto com API ViaCep.
+- Foram colcoado cacheamento nos dados, quando é feita uma requisição da consulta de CEP, mesma ficara cacheada.
+- Foi implementado Health check para validar se a aplicação está sendo executada.
+- Colocado uma autenticação na chamada da API, mesma só retornará os dados, se estiver autenticada pelo Token.
 
 ### 👩🏻‍💻 Realizando teste com swagger 
 
